@@ -37,7 +37,7 @@ Ejecuta el script principal pasando el dominio y la URL que quieras analizar:
 ```powershell
 python main.py --domain google.com --url https://openai.com
 ```
-  ![Texto alternativo](images/Captura de pantalla 2025-10-15 203202.png
+  ![Texto alternativo](images/Captura de pantalla 2025-10-15 203202.png)
 
 Esto realizara:
 - Consulta DNS y Whois del dominio indicado.
