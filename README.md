@@ -1,11 +1,12 @@
-# OSINT:Finggerprint
+# Proyecto: Enumeracion, Analisis de Cabeceras y Captura de User-Agent en Python
+
 ## Indice
 - [Estructura de archivos](#estructura-de-archivos)
 - [Requisitos](#requisitos)
 - [Uso](#uso)
-  - [1. Enumeracion y analisis de cabeceras](#1-enumeracion-y-analisis-de-cabeceras)
-  - [2. Captura de User-Agent](#2-captura-de-user-agent)
-  - [3. Scripts individuales](#3-scripts-individuales)
+  - [Enumeracion y analisis de cabeceras](#1-enumeracion-y-analisis-de-cabeceras)
+  - [Captura de User-Agent](#2-captura-de-user-agent)
+  - [Scripts individuales](#3-scripts-individuales)
 - [Explicacion del codigo](#explicacion-del-codigo)
 - [Seguridad](#seguridad)
 
@@ -15,7 +16,7 @@ Este proyecto contiene tres scripts principales en Python para realizar tareas d
 
 - `enumeracion.py`: Realiza enumeracion pasiva (DNS, Whois) y activa (escaneo de puertos) sobre un dominio.
 - `headers.py`: Recoge informacion de las cabeceras de seguridad de cualquier sitio web.
-- `server.py`: Crea un servidor HTTP que captura el "user-agent" de las peticiones y lo guarda en `user_agents.txt`.
+- `server.py`: Crea un servidor HTTP que captura el "user-agent" de las peticiones, lo guarda en `user_agents.txt` y lo envía automáticamente a una URL de Webhook.site para monitorización remota.
 - `main.py`: Ejecuta los tres scripts de forma secuencial y permite pasar los parametros necesarios desde la terminal.
 - `user_agents.txt`: Archivo donde se almacenan los user-agent capturados por el servidor(se crea al ejecutar el codigo la primera vez).
 
@@ -45,12 +46,19 @@ Esto realizara:
 
 ### 2-captura-de-user-agent
 
-Cuando el servidor este corriendo, accede a:
+Cuando el servidor esté corriendo, accede a:
 
 http://localhost:8080
 
+o desde otro dispositivo en la red:
 
-Cada visita quedara registrada en el archivo `user_agents.txt`.
+http://<IP_DEL_SERVIDOR>:8080
+
+Cada visita quedará registrada en el archivo `user_agents.txt` **y** el user-agent se enviará automáticamente a tu URL de Webhook.site para que puedas verlo online.
+
+Ejemplo de URL de Webhook.site utilizada:
+
+https://webhook.site/c4934360-6302-4cd2-9633-33dda3dbd21b
 
 ### 3-scripts-individuales
 
@@ -73,7 +81,7 @@ Tambien puedes ejecutar cada script por separado:
 
 - **enumeracion.py:** Utiliza sockets para consultar DNS y escanear puertos, y la libreria `whois` para obtener informacion publica del dominio.
 - **headers.py:** Realiza una peticion HTTP y muestra las cabeceras de seguridad mas relevantes.
-- **server.py:** Implementa un servidor HTTP basico que guarda el user-agent de cada peticion en un archivo local.
+- **server.py:** Implementa un servidor HTTP básico que guarda el user-agent de cada petición en un archivo local **y lo envía a Webhook.site para monitorización remota**.
 - **main.py:** Permite automatizar todo el proceso y pasar los parametros necesarios desde la terminal.
 
 ## Seguridad
