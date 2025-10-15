@@ -69,7 +69,7 @@ Tambien puedes ejecutar cada script por separado:
   ```powershell
   python enumeracion.py --domain google.com
   ```
-  ![Texto alternativo](images/Captura de pantalla 2025-10-15 200735.png)
+  ![Texto alternativo](images/Captura%20de%20pantalla%202025-10-15%20200735.png)
 
 - **Cabeceras:**
   ```powershell
