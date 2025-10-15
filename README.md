@@ -1,4 +1,4 @@
-# Proyecto: Enumeracion, Analisis de Cabeceras y Captura de User-Agent en Python
+# OSINT:Finggerprint
 
 ## Indice
 - [Estructura de archivos](#estructura-de-archivos)
